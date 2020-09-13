@@ -19,5 +19,7 @@ from django.urls import path,include
 urlpatterns = [
     path('admin/', admin.site.urls),
     # Django 3.0 需要定义 app name 参数（即第二个 learning_logs 实参）
+    path('users/', include(('users.urls','users'),namespace='users')),
     path('', include(('learning_logs.urls','learning_logs'),namespace='learning_logs')),
+
 ]

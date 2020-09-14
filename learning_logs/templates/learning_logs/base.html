@@ -5,8 +5,11 @@
         Hello, {{ user.username }}.
         <a href="{% url 'users:logout' %}">logout</a>
     {% else %} 
+        <a href="{% url 'users:register' %}">register</a> -
         <a href="{% url 'users:login' %}">login</a> 
     {% endif %}
 </p>
 
 {% block content %}{% endblock content %}
+
+#TODO做到这里

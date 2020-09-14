@@ -8,4 +8,5 @@ urlpatterns = [
     #参考文档 https://docs.djangoproject.com/zh-hans/3.1/topics/auth/
     path('login/', LoginView.as_view(template_name='users/login.html'),name='login'),
     path('logout/', views.logout_view,name='logout'),
+    path('register/', views.register,name='register'),
 ]

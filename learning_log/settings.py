@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     # 我的应用程序
     'learning_logs',
     'users',
+
+    # 第三方应用程序
+    'bootstrap3'
 ]
 
 MIDDLEWARE = [
@@ -124,6 +127,13 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # 我的设置
+
 # 用户未登录，重定向到登录页面
 # TODO 【理解】 @login_required() 与 LOGIN_URL 之间的关系
 LOGIN_URL = '/users/login/'
+
+#django-bootstrap3的设置 
+
+BOOTSTRAP3 = {
+    'include_jquery': True, 
+    }

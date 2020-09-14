@@ -39,7 +39,6 @@ def new_topic(request):
     if request.method != 'POST':
         # 未提交数据，创建一个新表单
         form = TopicForm()
-    
     else:
         # POST 提交的数据，对数据进行处理
         form = TopicForm(request.POST)
@@ -47,11 +46,13 @@ def new_topic(request):
             new_topic = form.save(commit=False)
             new_topic.owner = request.user
             new_topic.save()
-            # form.save()
-            return HttpResponseRedirect(reverse('learning_logs:topic'))
+            return HttpResponseRedirect(reverse('learning_logs:topics'))
     
     context = {'form':form}
     return render(request,'learning_logs/new_topic.html', context)
+
+# TODO 动手试一试 19-3 重构 ：在views.py中，我们在两个地方核实主题关联到的用户为当前登录的用户。请将执行这种检查的代码放在一个名为check_topic_owner() 的函数中， 并在恰当的地方调用这个函数。 19-4 保护页面 new_entry ：一个用户可在另一个用户的学习笔记中添加条目，方法是输入这样的URL，即其中包含输入另一个用户的主题的ID。为防范这种攻击， 请在保存新条目前，核实它所属的主题归当前用户所有。 19-5 受保护的博客 ：在你创建的项目Blog中，确保每篇博文都与特定用户相关联。确保任何用户都可访问所有的博文，但只有已登录的用户能够发表博文以及编辑既 有博文。在让用户能够编辑其博文的视图中，在处理表单前确认用户编辑的是他自己发表的博文。
+
 
 # 如何定义新条目，完全还没有搞懂
 

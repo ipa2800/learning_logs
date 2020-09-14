@@ -3,4 +3,4 @@
 
 ## 概要
 Django 环境：3.0.8
-Python 环境：3.7
+Python 环境：3.7.7

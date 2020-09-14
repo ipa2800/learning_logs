@@ -122,3 +122,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# 我的设置
+# 用户未登录，重定向到登录页面
+# TODO 【理解】 @login_required() 与 LOGIN_URL 之间的关系
+LOGIN_URL = '/users/login/'

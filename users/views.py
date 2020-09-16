@@ -13,13 +13,15 @@ def logout_view(request):
 def register(request): 
 
     if request.method != 'POST':
+        #UserCreationForm 这里调用了Django 的默认表单，因此会有对应的处理方法
         form = UserCreationForm()
     else:
         form = UserCreationForm(data=request.POST)
     
         if form.is_valid():
             new_user = form.save()
-            authenticated_user = authenticate(username=new_user.username,password=request.POST['password'])
+            #passowrd1 是获取表单中经一致性校验的第一个，作为密码
+            authenticated_user = authenticate(username=new_user.username,password=request.POST['password1'])
             login(request, authenticated_user)
             return HttpResponseRedirect(reverse('learning_logs:index'))
     context = {'form':form}
